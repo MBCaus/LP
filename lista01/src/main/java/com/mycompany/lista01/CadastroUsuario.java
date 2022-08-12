@@ -18,7 +18,8 @@ public class CadastroUsuario {
         String erros = leitor.nextLine();
         
         System.out.printf("Seu login é: %s \nSua senha é: %s "
-                + "\nVocê tem %s tentativas antes de ser bloqueado", login, senha, erros);
+                + "\nVocê tem %s tentativas antes de ser bloqueado"
+                , login, senha, erros);
         
     }
     

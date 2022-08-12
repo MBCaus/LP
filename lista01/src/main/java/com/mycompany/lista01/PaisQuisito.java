@@ -6,37 +6,29 @@ public class PaisQuisito {
  
     public static void main(String[] args) {
         
-        Integer filhosMaisNovos,
-                filhosDoMeio,
-                filhosMaisVelhos;
+        Scanner leitor = new Scanner(System.in);
         
-        Scanner leitor = new Scanner (System.in);
+        System.out.println("Quantos filhos de 0 a 3 anos possui?");
+        Integer MaisNovos = leitor.nextInt();
         
-        System.out.println("Quantos filhos de 0 a 3 "
-                + "anos você possui?");
-        filhosMaisNovos = leitor.nextInt();
+        System.out.println("Quantos filhos de 4 a 16 anos possui?");
+        Integer DoMeio = leitor.nextInt();
         
-        System.out.println("Quantos filhos de 4 a 16 "
-                + "anos você possui?");
-        filhosDoMeio = leitor.nextInt();
+        System.out.println("Quantos filhos de 17 a 18 anos possui?");
+        Integer MaisVelhos = leitor.nextInt();
         
-        System.out.println("Quantos filhos de 17 a 18 "
-                + "você anos possui?");
-        filhosMaisVelhos = leitor.nextInt();
+        Double conta1 = MaisNovos * 25.12;
+        Double conta2 = DoMeio * 15.88;
+        Double conta3 = MaisVelhos * 12.44;
         
-        Double conta1 = filhosMaisNovos * 25.12;
-        Double conta2 = filhosDoMeio * 15.88;
-        Double conta3 = filhosMaisVelhos * 12.44;
-        
-        int filhos = filhosMaisNovos + 
-                filhosDoMeio + filhosMaisVelhos;
+        Integer filhos = MaisNovos + DoMeio + MaisVelhos; 
         
         Double total = conta1 + conta2 + conta3;
         
-        System.out.printf("Você tem um total de: %s "
-                + "filhos "
-                + " e vai receber R$%.f2 de bolsa"
-                , filhos, total);
+        System.out.println(" Você tem um total de " 
+                + filhos + " filhos e vai receber R$" 
+                + total + " de bolsa.");
+        
     }
     
 }
