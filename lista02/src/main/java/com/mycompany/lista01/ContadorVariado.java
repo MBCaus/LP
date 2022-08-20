@@ -8,7 +8,11 @@ public class ContadorVariado {
         
         Scanner leitor = new Scanner(System.in);
         
-        
+        for (Double numero = 0.15; numero < 5; numero += 0.15) {
+            
+            System.out.printf("%.2f \n", numero);  
+            
+        }
         
     }
     
