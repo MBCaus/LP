@@ -15,6 +15,13 @@ public class ClasseSocial {
         
         Double quantidade = salarios.salariosMinimos(renda);
         
+        CalculoSalarioMinimo classes = new CalculoSalarioMinimo();
+        
+        String classe = classes.classePertencente(quantidade);
+        
+        System.out.printf("Você tem aproximadamente %.1f salários minimos e %s", 
+                quantidade, classe);
+        
         
         
     }
