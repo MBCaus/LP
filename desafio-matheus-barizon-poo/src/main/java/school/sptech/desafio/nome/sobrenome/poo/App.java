@@ -7,8 +7,9 @@ public class App {
     public static void main(String[] args) {
 
         Scanner leitor = new Scanner(System.in);
-
-        RecursosHumanos recursosHumanos = new RecursosHumanos(0, 0);
+        
+        Colaborador cl = new Colaborador("Matheus", "Estagiario", 2500.0);
+        RecursosHumanos recursosHumanos = new RecursosHumanos();
 
         System.out.println("Digite seu nome: ");
         String nome = leitor.nextLine();
@@ -25,9 +26,9 @@ public class App {
 
         System.out.println("-".repeat(30));
 
-        Colaborador colaborador = new Colaborador(nome, cargo, salario);
+        RecursosHumanos rh = new RecursosHumanos();
 
-        colaborador.reajustarSalario(nome, 0.1);
+        rh.reajustarSalario(cl, 10.0);
 
         System.out.println("-".repeat(30));
 
@@ -42,7 +43,7 @@ public class App {
 
         System.out.println("-".repeat(30));
 
-        colaborador.promoverColaborador(nome, novoCargo, novoSalaraio);
+        rh.promoverColaborador(cl, novoCargo, novoSalaraio);
 
     }
 
