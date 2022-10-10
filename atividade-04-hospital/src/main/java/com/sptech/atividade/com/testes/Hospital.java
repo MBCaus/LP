@@ -22,24 +22,18 @@ public class Hospital {
         return quantidadeDeHoraExtra;
     }
 
-    public Medico getDoutor() {
-        return doutor;
-    }   
-
-    Medico doutor = new Medico(0, "", "");
-
     public void realizarPagamento(Medico medico, Double valorPago) {
 
         if (medico != null && valorPago != null) {
 
-            if (doutor.getAtivo() == true) {
+            if (medico.getAtivo() == true) {
 
                 if (valorPago > 0) {
-                    
-                    doutor.setSalario(doutor.getSalario() + valorPago);
-                    
+
+                    medico.setSalario(medico.getSalario() + valorPago);
+
                     quantidadeDePagamentos++;
-                    
+
                 } else {
 
                     System.out.println("Digite um valor positivo.");
@@ -61,29 +55,27 @@ public class Hospital {
     }
 
     public void realizarPagamento(Medico medico, Double valorPago, Double horaExtra) {
-        
-        if(medico != null && valorPago != null) {
-        
-            if (doutor.getAtivo() == true) {
+
+        if (medico != null && valorPago != null) {
+
+            if (medico.getAtivo() == true) {
 
                 if (valorPago > 0) {
-                    
-                    doutor.setSalario(doutor.getSalario() + valorPago);
-                    
-                    quantidadeDePagamentos++;
-                    
-                    if(horaExtra != null && horaExtra > 0) {
-                    
-                        doutor.setSalario(doutor.getSalario() + valorPago);
-                        
+
+                    if (horaExtra != null && horaExtra > 0) {
+
+                        medico.setSalario(medico.getSalario() + horaExtra + valorPago);
+
                         quantidadeDeHoraExtra++;
-                    
-                    }else {
-                    
+
+                        quantidadeDePagamentos++;
+
+                    } else {
+
                         System.out.println("Digite um valor valido.");
-                        
+
                     }
-                    
+
                 } else {
 
                     System.out.println("Digite um valor positivo.");
@@ -95,35 +87,35 @@ public class Hospital {
                 System.out.println("O Medico responsavel deve estar ativo.");
 
             }
-            
-        }else {
-            
+
+        } else {
+
             System.out.println("Adicione um valor.");
-        
+
         }
-        
+
     }
 
     public void desligarMedico(Medico medico) {
-        
-        if(medico != null) {
-            
-            if(doutor.getAtivo() == true) {
-            
-                doutor.setAtivo(Boolean.FALSE);
-                
-            }else{
-            
+
+        if (medico != null) {
+
+            if (medico.getAtivo() == true) {
+
+                medico.setAtivo(Boolean.FALSE);
+
+            } else {
+
                 System.out.println("O médico já esta desativado.");
-                
+
             }
-            
-        }else {
-        
+
+        } else {
+
             System.out.println("Adicione o nome de um médico.");
-            
+
         }
-        
+
     }
 
 }
