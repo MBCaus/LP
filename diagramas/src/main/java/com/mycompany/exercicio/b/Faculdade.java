@@ -56,7 +56,7 @@ public class Faculdade {
     
     public void exibirCancelados() {
         for (int i = 0; i < alunos.size(); i++) {
-            if(alunos.get(i).getAtivo() != true) {
+            if(!alunos.get(i).getAtivo()) {
                 System.out.println(alunos.get(i).getNome());
             }
         }
