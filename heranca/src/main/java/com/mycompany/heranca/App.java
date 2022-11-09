@@ -3,16 +3,17 @@ package com.mycompany.heranca;
 public class App {
 
     public static void main(String[] args) {
-
-        VendedorComissao vendedorComissao = new VendedorComissao(1, "Matheus", 0.0, 0.0);
-
-        VendedorComissaoMaisFixo vendedorComissaoMaisFixo = new VendedorComissaoMaisFixo(2,
-                "Matheus", 200.0, 5.0, 800.0);
-
-        System.out.println(vendedorComissao.calcularSalario());
         
-        System.out.println(vendedorComissaoMaisFixo.calcularSalario());
-
+        Departamento dept = new Departamento("EletroYag");
+        VendedorComissao vendedor1 = new VendedorComissao(1, "Gabriel", 1_500.0, 200.0);
+        VendedorComissaoMaisFixo vendedor2 = new VendedorComissaoMaisFixo(2, "Pedro", 1_500.0, 200.0, 5_000.0);
+        
+        dept.adicionaVendedor(vendedor1);
+        dept.adicionaVendedor(vendedor2);
+        
+        System.out.println("Total: " + dept.getQuantidadeVendedores());
+        
+        System.out.println("Sálario: " + dept.calcularTotalSalario());
     }
-
+    
 }
