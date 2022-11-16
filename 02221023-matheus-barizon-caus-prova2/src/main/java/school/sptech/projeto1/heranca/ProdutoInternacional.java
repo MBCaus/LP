@@ -8,6 +8,6 @@ public class ProdutoInternacional extends Produto {
 
     @Override
     public Double getPreco() {
-        return super.getPreco() + (super.getPreco() * 0.6);
+        return (super.getPreco() + (super.getPreco() * 0.6));
     }
 }

@@ -1,5 +1,6 @@
 package school.sptech.projeto1.heranca;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -18,12 +19,16 @@ import java.util.List;
  */
 public class Carrinho {
 
-    List<Produto> produtos;
+    private List<Produto> produtos;
 
     public Carrinho() {
-        
+        this.produtos = new ArrayList();
     }
 
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+    
     /**
      * Adiciona um {@link Produto} novo no carrinho. Caso o valor seja
      * {@link null} o {@link Produto} não deve ser adicionado
@@ -31,7 +36,9 @@ public class Carrinho {
      * @param produto Novo {@link Produto} a ser adicionado
      */
     public void adicionarProduto(Produto produto) {
-
+        if (produto != null) {
+            produtos.add(produto);
+        }
     }
 
     /**
@@ -41,7 +48,9 @@ public class Carrinho {
      * @param indice Índice do {@link Produto} que será removido
      */
     public void removerProduto(int indice) {
-        
+        if (indice <= produtos.size() && indice >= 0) {
+            produtos.remove(indice);
+        }
     }
 
     /**
@@ -50,7 +59,11 @@ public class Carrinho {
      * @return valor total do carrinho
      */
     public Double calcularTotal() {
-        return null;
+        Double valorTotal = 0.0;
+        for (Produto produto : produtos) {
+            valorTotal += produto.getPreco();
+        }
+        return valorTotal;
     }
 
     /**
@@ -61,7 +74,8 @@ public class Carrinho {
      * @return total do carrinho parcelado
      */
     public Double parcelarCompra(Integer vezes) {
-        return null;
+        Double valorParcelado = (calcularTotal() / vezes);
+        return valorParcelado;
     }
 
     /**
@@ -72,6 +86,11 @@ public class Carrinho {
      * @return {@link Produto} encontrado
      */
     public Produto findProdutoPeloIndice(Integer index) {
+        if (index != null) {
+            if (produtos.size() > index) {
+                return produtos.get(index);
+            }
+        }
         return null;
     }
 
@@ -86,7 +105,7 @@ public class Carrinho {
      */
     public Produto findProdutoPeloNome(String nome) {
         for (Produto produto : produtos) {
-            if(produto.getNome().equals(nome)) {
+            if (produto.getNome().toLowerCase().equals(nome.toLowerCase())) {
                 return produto;
             }
         }
@@ -103,12 +122,13 @@ public class Carrinho {
      * @return Produtos encontrados
      */
     public List<Produto> findProdutoPorCategoria(String categoria) {
+        List<Produto> produtosEncontrados = new ArrayList();
         for (Produto produto : produtos) {
-            if(produto.getCategoria().equals(categoria)){
-                return produtos;
+            if (produto.getCategoria().toLowerCase().equals(categoria.toLowerCase())) {
+                produtosEncontrados.add(produto);
             }
         }
-        return null;
+        return produtosEncontrados;
     }
 
     /**
@@ -119,10 +139,13 @@ public class Carrinho {
      * @return Produtos internacionais encontrados
      */
     public Integer countProdutosInternacionais() {
-        return null;
+        Integer qtdProdutosInter = 0;
+        for (Produto produto : produtos) {
+            if (produto instanceof ProdutoInternacional) {
+                qtdProdutosInter++;
+            }
+        }
+        return qtdProdutosInter;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
 }
